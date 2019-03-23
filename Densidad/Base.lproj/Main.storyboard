@@ -142,6 +142,9 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Bn-u7-NAX">
                                 <rect key="frame" x="53" y="550" width="287" height="52"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="fhB-36-lwj" id="NQM-Lj-wGT"/>
+                                </connections>
                             </pickerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Atv-qA-tVy">
                                 <rect key="frame" x="59" y="221" width="301" height="258"/>
@@ -252,6 +255,7 @@
                         <outlet property="gramos2" destination="4ka-AT-lUU" id="e1D-qh-jkO"/>
                         <outlet property="objeto1" destination="e6e-rp-pyv" id="HNn-3q-EQl"/>
                         <outlet property="objeto2" destination="jc1-ZD-EXf" id="3XI-dA-Unl"/>
+                        <outlet property="pvLiquidos" destination="7Bn-u7-NAX" id="nGx-04-dYb"/>
                         <outlet property="vistaOpacidad" destination="OX0-Rh-Hhc" id="Gtx-LC-Kdq"/>
                         <outlet property="volumen1" destination="Myh-qr-ZFz" id="xsf-Uc-9bn"/>
                         <outlet property="volumen2" destination="6Fm-F1-MBy" id="QUO-ge-x6Q"/>
