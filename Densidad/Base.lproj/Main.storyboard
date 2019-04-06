@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -245,7 +245,11 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.80779068060000003" green="1" blue="0.86073422359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="Gig-8B-c6s"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="teI-Nt-3sZ" appends="YES" id="out-2b-Ych"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="densidad1" destination="I7Z-K7-IXM" id="aCa-iM-MJR"/>
@@ -262,14 +266,19 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TjO-kZ-Tht" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="teI-Nt-3sZ">
+                    <connections>
+                        <action selector="hideKeyboard:" destination="fhB-36-lwj" id="ZO9-mj-l1a"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1011.5942028985507" y="-175.27173913043481"/>
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="312" height="248.16000366210938"/>
-        <image name="settings" width="491.51998901367188" height="491.51998901367188"/>
+        <image name="logo" width="1300" height="1034"/>
+        <image name="settings" width="512" height="512"/>
         <image name="vaso" width="167" height="194"/>
-        <image name="vaso_down" width="39.119998931884766" height="9.3599996566772461"/>
+        <image name="vaso_down" width="163" height="39"/>
     </resources>
 </document>
