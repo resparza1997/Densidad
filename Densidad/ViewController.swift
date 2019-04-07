@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
+    @IBOutlet weak var btSettings: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +20,23 @@ class ViewController: UIViewController {
     
     
     //Segue
-    
     override func prepare(for segue: UIStoryboardSegue,
                  sender: Any?){
+        if (sender as! UIButton) == btSettings{
+            let vistaPopOver = segue.destination as! ViewControllerSettings
+            vistaPopOver.popoverPresentationController!.delegate = self
+        }
         
+    }
+    
+    @IBAction func unwindRegresa(segue: UIStoryboardSegue){
+        
+    }
+    
+    
+    //Pop Over
+    func adaptivePresentationStyle (for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }
 

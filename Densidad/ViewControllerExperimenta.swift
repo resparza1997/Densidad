@@ -25,8 +25,10 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var volumen2: UITextField!
     @IBOutlet weak var densidad1: UITextField!
     @IBOutlet weak var densidad2: UITextField!
-    @IBOutlet weak var objeto1: UIView!
-    @IBOutlet weak var objeto2: UIView!
+    
+    @IBOutlet weak var objeto1: UIImageView!
+    @IBOutlet weak var objeto2: UIImageView!
+    
     
     private lazy var waveView: LCWaveView = {
         let waveView = LCWaveView(frame: CGRect(x: 0, y: 0, width: vistaOpacidad.bounds.size.width , height: 0 ), color: UIColor.black)
@@ -38,8 +40,17 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        gramos1.text = "0"
+        gramos2.text = "0"
+        volumen1.text = "0"
+        volumen2.text = "0"
+        densidad1.text = "0"
+        densidad2.text = "0"
+        densidadLiquido = 1000
+        
+        
+        
+        //Waves
         gifLiquido.loadGif(name: "agua fondo")
         waveView.startWave()
         vistaOpacidad.addSubview(waveView)
@@ -51,8 +62,15 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+        
+        //Tap Gesture Recognizer
+        let tap = UITapGestureRecognizer(target: self, action: #selector(calculaDensidad))
+        view.addGestureRecognizer(tap)
+        
 
     }
+    
     
 
     /*
@@ -65,8 +83,29 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
     }
     */
     
-    @IBAction func calculaDensidad(_ sender: Any) {
-        if ( gramos1.text != "" && volumen1.text != "" ){
+    @IBAction func quitaTeclado(){
+        view.endEditing(true)
+    }
+    
+    @IBAction func submerging(objeto : UIView){
+        
+            UIView.animate(withDuration: 1, animations: {
+                objeto.frame.origin.x += 15
+            }){_ in
+                UIView.animateKeyframes(withDuration: 1.4, delay: 0.5, options: [.autoreverse, .repeat], animations: {
+                    objeto.frame.origin.x -= 15
+                })
+            }
+   
+    }
+    
+
+    
+    //Función que calcula la densidad
+    @IBAction func calculaDensidad() {
+       
+        
+        if ( gramos1.text != "0" && volumen1.text != "0" && gramos1.text != "" && volumen1.text != ""){
             let peso = Double(gramos1.text!)
             let volumen = Double(volumen1.text!)
             
@@ -74,47 +113,55 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
             
             densidad1.text = String(densidad)
             
-            if ( densidad > 1  ){
-                UIView.animate(withDuration: 0.5){
-                    self.objeto1.frame.origin.y = 500
+            //self.submerging(objeto: self.objeto1)
+            if ( densidad > (densidadLiquido/1000)  ){
+                UIView.animate(withDuration: 5){
+                    self.objeto1.frame.origin.y = 440
+                    
                 }
+                
             }
             
-            if ( densidad < 1  ){
-                UIView.animate(withDuration: 0.5){
+            if ( densidad < (densidadLiquido/1000)  ){
+                UIView.animate(withDuration: 5){
                     self.objeto1.frame.origin.y = 200
                 }
             }
-            if ( densidad == 1  ){
-                UIView.animate(withDuration: 0.5){
-                    self.objeto1.frame.origin.y = 400
+            
+            if ( densidad == (densidadLiquido/1000)  ){
+                UIView.animate(withDuration: 5){
+                    self.objeto1.frame.origin.y = 350
                 }
+                
             }
+            
+           
             
         }
         
-        if ( gramos2.text != "" && volumen2.text != "" ){
+        if ( gramos2.text != "0" && volumen2.text != "0" && gramos2.text != "" && volumen2.text != ""){
             let peso = Double(gramos2.text!)
             let volumen = Double(volumen2.text!)
             
             let densidad :Double = peso! / volumen!
             
             densidad2.text = String(densidad)
+            //self.submerging(objeto: self.objeto2)
             
-            if ( densidad > 1  ){
-                UIView.animate(withDuration: 0.5){
-                    self.objeto2.frame.origin.y = 500
+            if ( densidad > (densidadLiquido/1000)  ){
+                UIView.animate(withDuration: 5){
+                    self.objeto2.frame.origin.y = 440
                 }
             }
             
-            if ( densidad < 1  ){
-                UIView.animate(withDuration: 0.5){
+            if ( densidad < (densidadLiquido/1000)  ){
+                UIView.animate(withDuration: 5){
                     self.objeto2.frame.origin.y = 200
                 }
             }
-            if ( densidad == 1  ){
-                UIView.animate(withDuration: 0.5){
-                    self.objeto2.frame.origin.y = 400
+            if ( densidad == (densidadLiquido/1000)  ){
+                UIView.animate(withDuration: 5){
+                    self.objeto2.frame.origin.y = 350
                 }
             }
         }
@@ -143,33 +190,41 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
         if(row == 0){
             vistaOpacidad.backgroundColor = UIColor.blue.withAlphaComponent(0.5)
             densidadLiquido = Double(densidadesLiquidos[row])
+            calculaDensidad()
         }
         
         //Agua de mar
         if(row == 1){
             vistaOpacidad.backgroundColor = UIColor.blue.withAlphaComponent(0.5)
             densidadLiquido = Double(densidadesLiquidos[row])
+            calculaDensidad()
         }
         
         //Aceite
         if(row == 2){
             vistaOpacidad.backgroundColor = UIColor.yellow.withAlphaComponent(0.5)
             densidadLiquido = Double(densidadesLiquidos[row])
+            calculaDensidad()
         }
         
         //Gasolina
         if(row == 3){
             vistaOpacidad.backgroundColor = UIColor(red: 0.898, green: 0.6745, blue: 0, alpha: 0.5) /* #e5ac00 */
             densidadLiquido = Double(densidadesLiquidos[row])
+            calculaDensidad()
         }
         
         //Alcohol
         if(row == 4){
             vistaOpacidad.backgroundColor = UIColor(red: 0.9882, green: 0.9686, blue: 0.8784, alpha: 0.5) /* #fcf7e0 */
             densidadLiquido = Double(densidadesLiquidos[row])
+            calculaDensidad()
         }
         
     }
+    
+    
+    // MARK: Manage Keyboard
     deinit{
         NotificationCenter.default.removeObserver(self,name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self,name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -197,4 +252,9 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
         }
     
     }
+    
+    @IBAction func regresar(_ sender: Any) {
+        
+    }
+    
 }
