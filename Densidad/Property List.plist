@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<string>Tema 1</string>
+		<array>
+			<string>Pregunta1</string>
+			<string>Respuesta1</string>
+			<string>Respuesta2</string>
+			<string>Respuesta3</string>
+			<string>Respuesta4</string>
+		</array>
+		<array>
+			<string>Pregunta2</string>
+			<string>Respuesta1</string>
+			<string>Respuesta2</string>
+			<string>Respuesta3</string>
+			<string>Respuesta4</string>
+		</array>
+		<array>
+			<string>Pregunta3</string>
+			<string>Respuesta1</string>
+			<string>Respuesta2</string>
+			<string>Respuesta3</string>
+			<string>Respuesta4</string>
+		</array>
+		<array>
+			<string>Pregunta4</string>
+			<string>Respuesta1</string>
+			<string>Respuesta2</string>
+			<string>Respuesta3</string>
+			<string>Respuesta4</string>
+		</array>
+		<array>
+			<string>Pregunta5</string>
+			<string>Respuesta1</string>
+			<string>Respuesta2</string>
+			<string>Respuesta3</string>
+			<string>Respuesta4</string>
+		</array>
+	</array>
+</array>
+</plist>

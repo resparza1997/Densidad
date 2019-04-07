@@ -46,6 +46,12 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
 
         vistaOpacidad.backgroundColor = UIColor.blue.withAlphaComponent(0.5)
 
+        
+        // Listen for keyboardevents
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+
     }
     
 
@@ -163,5 +169,32 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
             densidadLiquido = Double(densidadesLiquidos[row])
         }
         
+    }
+    deinit{
+        NotificationCenter.default.removeObserver(self,name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self,name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self,name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+
+        
+    }
+    @IBAction func hideKeyboard(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    
+    @objc func keyboardWillChange(notification: Notification){
+        print("keyboard will show: \(notification.name.rawValue)")
+        
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        
+        if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification{
+            view.frame.origin.y = -keyboardRect.height
+        }
+        else{
+            view.frame.origin.y = 0
+        }
+    
     }
 }
