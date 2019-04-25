@@ -83,10 +83,6 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
     }
     */
     
-    @IBAction func quitaTeclado(){
-        view.endEditing(true)
-    }
-    
     @IBAction func submerging(objeto : UIView){
         
             UIView.animate(withDuration: 1, animations: {
@@ -104,7 +100,7 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
     //Función que calcula la densidad
     @IBAction func calculaDensidad() {
        
-        
+        view.endEditing(true)
         if ( gramos1.text != "0" && volumen1.text != "0" && gramos1.text != "" && volumen1.text != ""){
             let peso = Double(gramos1.text!)
             let volumen = Double(volumen1.text!)
