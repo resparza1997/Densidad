@@ -34,7 +34,7 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var vasoDown: UIImageView!
     @IBOutlet weak var opacidadVista: UIView!
     
-    
+    var bgColor: UIColor!
     
     private lazy var waveView: LCWaveView = {
         let waveView = LCWaveView(frame: CGRect(x: 0, y: 0, width: vistaOpacidad.bounds.size.width , height: 0 ), color: UIColor.black)
@@ -46,6 +46,9 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = bgColor
+        
         gramos1.text = "0"
         gramos2.text = "0"
         volumen1.text = "0"

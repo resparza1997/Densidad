@@ -16,8 +16,12 @@ class ViewControllerCargaPreguntas: UIViewController {
     var arr : NSArray!
     @IBOutlet weak var lbSegundos: UILabel!
     
+    var bgColor: UIColor!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = bgColor
         
         // let's start by drawing a circle somehow
         

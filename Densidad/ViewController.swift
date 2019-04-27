@@ -46,6 +46,26 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             vistaPopOver.boolSonido = boolSonido
             vistaPopOver.bgColorSetting = bgColor
         }
+        else {
+            if( segue.identifier == "aprende" ){
+                
+                let vista = segue.destination as! UINavigationController
+                
+                
+            }
+            else if( segue.identifier == "experimenta" ){
+                
+                let vista = segue.destination as! ViewControllerExperimenta
+                
+                vista.bgColor = bgColor
+            }
+            else{
+                
+                let vista = segue.destination as! TableViewControllerPreguntas
+                
+                vista.bgColor = bgColor
+            }
+        }
         
     }
     

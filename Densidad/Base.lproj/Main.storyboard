@@ -46,7 +46,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="XMJ-BZ-qyH" kind="show" id="SrD-Ii-AhK"/>
+                                    <segue destination="AX8-CP-LXz" kind="show" identifier="aprende" id="FGg-7P-T7q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQG-kC-fPF">
@@ -59,7 +59,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gfy-6V-Tul" kind="show" id="1pu-2m-6Nx"/>
+                                    <segue destination="gfy-6V-Tul" kind="show" identifier="cuestionate" id="KEE-dS-ZHX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f70-Fh-kd3">
@@ -141,10 +141,20 @@
                             <outlet property="delegate" destination="gfy-6V-Tul" id="wOG-fi-rqY"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Back" id="txz-V0-1bq">
+                            <connections>
+                                <segue destination="y9L-hc-FTr" kind="unwind" unwindAction="unwindRegresaWithSegue:" id="jgJ-cZ-nIP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Item" id="1ap-YB-lXk"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lfs-ko-Krw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="y9L-hc-FTr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="983" y="856"/>
+            <point key="canvasLocation" x="864" y="864"/>
         </scene>
         <!--View Controller Carga Preguntas-->
         <scene sceneID="FLz-iI-pRA">
@@ -463,15 +473,6 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RL5-d7-otb">
-                                <rect key="frame" x="11" y="35" width="30" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="&lt;"/>
-                                <connections>
-                                    <segue destination="k29-9n-pka" kind="unwind" unwindAction="unwindRegresaWithSegue:" id="piM-Qa-JJ1"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hA-XB-i6d">
                                 <rect key="frame" x="118" y="612" width="9" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -493,6 +494,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RL5-d7-otb">
+                                <rect key="frame" x="15" y="31" width="64" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="k29-9n-pka" kind="unwind" unwindAction="unwindRegresaWithSegue:" id="piM-Qa-JJ1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.80779068060000003" green="1" blue="0.86073422359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -573,25 +583,21 @@
                                     <action selector="tema3:" destination="tqV-cr-MmR" eventType="touchUpInside" id="yhP-sv-JXb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkb-bS-0ig">
-                                <rect key="frame" x="46" y="228" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="YEd-Rb-nap" kind="unwind" unwindAction="unwindRegresaWithSegue:" id="MFv-4A-l6d"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.80779068060000003" green="1" blue="0.86073422359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="Dd3-Ek-I7U"/>
                     </view>
                     <navigationItem key="navigationItem" id="7av-8J-8Rd">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="FqX-33-4FZ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fiD-Au-UT9">
-                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                <rect key="frame" x="20" y="5" width="92" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="YEd-Rb-nap" kind="unwind" unwindAction="unwindRegresaWithSegue:" id="Tha-e2-xjj"/>
+                                </connections>
                             </button>
                             <connections>
                                 <segue destination="YEd-Rb-nap" kind="unwind" unwindAction="unwindRegresaWithSegue:" id="fXs-68-E3O"/>
@@ -602,7 +608,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MoD-Yi-gAi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YEd-Rb-nap" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1352.1739130434785" y="-840.48913043478262"/>
+            <point key="canvasLocation" x="2262.3188405797105" y="-841.07142857142856"/>
         </scene>
         <!--View Controller Settings-->
         <scene sceneID="nYt-ky-yOY">
@@ -696,30 +702,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QpB-g8-NY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="sps-3v-e2B" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1852.1739130434785" y="-437.77173913043481"/>
+            <point key="canvasLocation" x="2762.3188405797105" y="-437.94642857142856"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="hc1-84-S8l">
+        <scene sceneID="hSV-n1-mOq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XMJ-BZ-qyH" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AX8-CP-LXz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gON-MF-Pib">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="axB-V0-8k2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="cTe-pc-6pp" appends="YES" id="4mv-0d-1e6"/>
-                        </connections>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="tqV-cr-MmR" kind="relationship" relationship="rootViewController" id="c01-Fg-jo0"/>
+                        <segue destination="tqV-cr-MmR" kind="relationship" relationship="rootViewController" id="jwR-kW-ixo"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w7n-PL-HCU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pinchGestureRecognizer id="cTe-pc-6pp"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pK8-xR-HfG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="444.92753623188412" y="-840.48913043478262"/>
+            <point key="canvasLocation" x="1352.1739130434785" y="-841.07142857142856"/>
         </scene>
     </scenes>
     <resources>
