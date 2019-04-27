@@ -69,7 +69,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fhB-36-lwj" kind="show" identifier="experimenta" id="OhF-rx-eM0"/>
+                                    <segue destination="fhB-36-lwj" kind="presentation" identifier="experimenta" id="OhF-rx-eM0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khi-X1-VmB">
@@ -473,7 +473,10 @@
                         <outlet property="gramos2" destination="4ka-AT-lUU" id="e1D-qh-jkO"/>
                         <outlet property="objeto1" destination="uUt-BN-WN7" id="F9G-Dy-X8I"/>
                         <outlet property="objeto2" destination="pwB-m9-opw" id="Vxs-gE-35v"/>
+                        <outlet property="opacidadVista" destination="OX0-Rh-Hhc" id="gCU-7U-XGH"/>
                         <outlet property="pvLiquidos" destination="7Bn-u7-NAX" id="nGx-04-dYb"/>
+                        <outlet property="vaso" destination="Nff-0J-8zF" id="wEn-NJ-z2C"/>
+                        <outlet property="vasoDown" destination="vbV-Jv-j2c" id="Eu0-mM-lGv"/>
                         <outlet property="vistaOpacidad" destination="OX0-Rh-Hhc" id="Gtx-LC-Kdq"/>
                         <outlet property="volumen1" destination="Myh-qr-ZFz" id="xsf-Uc-9bn"/>
                         <outlet property="volumen2" destination="6Fm-F1-MBy" id="QUO-ge-x6Q"/>
@@ -494,12 +497,15 @@
             <objects>
                 <viewController id="iBz-Lf-Qod" customClass="ViewControllerSettings" customModule="Densidad" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zcp-jl-2qB">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="220"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="270"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q6F-ff-AGg">
                                 <rect key="frame" x="139" y="65" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="playSound:" destination="iBz-Lf-Qod" eventType="valueChanged" id="b2I-GL-DG1"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sonido" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYP-L7-rCK">
                                 <rect key="frame" x="49" y="67" width="67" height="27"/>
@@ -508,41 +514,77 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Color de fondo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="915-UC-AWY">
-                                <rect key="frame" x="25" y="119" width="114" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Color de fondo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="915-UC-AWY">
+                                <rect key="frame" x="40" y="146" width="75" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0p-rr-n9z">
-                                <rect key="frame" x="104" y="166" width="34" height="30"/>
+                                <rect key="frame" x="123" y="218" width="81" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Listo"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Guardar"/>
                                 <connections>
-                                    <segue destination="sps-3v-e2B" kind="unwind" unwindAction="unwindRegresaWithSegue:" id="sqB-hZ-Y56"/>
+                                    <segue destination="sps-3v-e2B" kind="unwind" unwindAction="unwindSettingsWithSegue:" id="OPb-4w-vvr"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hhh-uW-yxy">
-                                <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Ajustes" id="nuz-Gg-hK2"/>
                                 </items>
                             </navigationBar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eNc-GB-TDT">
+                                <rect key="frame" x="123" y="139" width="169" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zg8-MQ-4fl">
+                                        <rect key="frame" x="8" y="11" width="46" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.79679512649999995" green="1" blue="0.98803385440000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="btAzul:" destination="iBz-Lf-Qod" eventType="touchUpInside" id="fOp-PI-8Rr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDd-Dr-2UE">
+                                        <rect key="frame" x="115" y="10" width="46" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.86303038553812361" green="0.88904411453307208" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="btMorado:" destination="iBz-Lf-Qod" eventType="touchUpInside" id="1S5-lE-TUU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEO-Dm-5Xi">
+                                        <rect key="frame" x="61" y="10" width="46" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.93344217350000003" blue="0.72404547070000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="btAmarillo:" destination="iBz-Lf-Qod" eventType="touchUpInside" id="aBQ-kR-n3W"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.93344217350000003" blue="0.72404547070000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="je9-Cy-Y0L"/>
                     </view>
-                    <size key="freeformSize" width="250" height="220"/>
+                    <size key="freeformSize" width="300" height="270"/>
                     <connections>
+                        <outlet property="amarillo" destination="BEO-Dm-5Xi" id="2xI-UI-vat"/>
+                        <outlet property="azul" destination="Zg8-MQ-4fl" id="7xB-vz-gd9"/>
+                        <outlet property="btListo" destination="P0p-rr-n9z" id="aXL-dE-Wi0"/>
+                        <outlet property="morado" destination="ZDd-Dr-2UE" id="SKz-gY-ufh"/>
                         <outlet property="swSonido" destination="Q6F-ff-AGg" id="Db5-qO-pmE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QpB-g8-NY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="sps-3v-e2B" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="945" y="-437"/>
+            <point key="canvasLocation" x="944.92753623188412" y="-437.77173913043481"/>
         </scene>
     </scenes>
     <resources>
