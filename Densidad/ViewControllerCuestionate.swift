@@ -19,12 +19,11 @@ class ViewControllerCuestionate: UIViewController {
     
     var arrPreguntas: NSArray!
     var pregunta = [String]()
-    var respuesta = [String](repeating: " ", count: 11)
-    var ordenRespuestas = Array(repeating: Array(repeating: 0, count: 5 ), count: 11)
+    var respuesta = [String](repeating: " ", count: 20)
+    var ordenRespuestas = Array(repeating: Array(repeating: 0, count: 5 ), count: 20)
     var contador : Int = 1
     var respuestaRandom = ["","","",""]
-    
-    
+    var arr = [Int]()
     
     
     
@@ -79,7 +78,7 @@ class ViewControllerCuestionate: UIViewController {
         }
         
         
-        let arr = ordenRespuestas[contador]
+        arr = ordenRespuestas[contador]
         
         lbPregunta.text? = pregunta[0]
         resp1.setTitle(pregunta[arr[1]], for: .normal)
@@ -100,10 +99,10 @@ class ViewControllerCuestionate: UIViewController {
     @IBAction func respuesta1(_ sender: Any) {
         
         if(contador == arrPreguntas.count - 1){
-            respuesta[contador] = pregunta[1]
+            respuesta[contador] = pregunta[arr[1]]
             Terminar.isHidden = false
         }else{
-            respuesta[contador] = pregunta[1]
+            respuesta[contador] = pregunta[arr[1]]
             contador = contador+1
             cargaPregunta()
         }
@@ -111,10 +110,10 @@ class ViewControllerCuestionate: UIViewController {
     
     @IBAction func respuesta2(_ sender: Any) {
         if(contador == arrPreguntas.count - 1){
-            respuesta[contador] = pregunta[2]
+            respuesta[contador] = pregunta[arr[2]]
             Terminar.isHidden = false
         }else{
-            respuesta[contador] = pregunta[2]
+            respuesta[contador] = pregunta[arr[2]]
             contador = contador+1
             cargaPregunta()
         }
@@ -122,10 +121,10 @@ class ViewControllerCuestionate: UIViewController {
     
     @IBAction func respuesta3(_ sender: Any) {
         if(contador == arrPreguntas.count - 1){
-            respuesta[contador] = pregunta[3]
+            respuesta[contador] = pregunta[arr[3]]
             Terminar.isHidden = false
         }else{
-            respuesta[contador] = pregunta[3]
+            respuesta[contador] = pregunta[arr[3]]
             contador = contador+1
             cargaPregunta()
         }
@@ -133,10 +132,10 @@ class ViewControllerCuestionate: UIViewController {
     
     @IBAction func respuesta4(_ sender: Any) {
         if(contador == arrPreguntas.count - 1){
-            respuesta[contador] = pregunta[4]
+            respuesta[contador] = pregunta[arr[4]]
             Terminar.isHidden = false
         }else{
-            respuesta[contador] = pregunta[4]
+            respuesta[contador] = pregunta[arr[4]]
             contador = contador+1
             cargaPregunta()
         }

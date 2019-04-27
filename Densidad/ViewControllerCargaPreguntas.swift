@@ -10,14 +10,47 @@ import UIKit
 
 class ViewControllerCargaPreguntas: UIViewController {
     
+    let shapeLayer = CAShapeLayer()
+    
     @IBOutlet weak var lbPrueba: UILabel!
     var arr : NSArray!
-
+    @IBOutlet weak var lbSegundos: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // let's start by drawing a circle somehow
+        
+        let center = view.center
+        
+        // create my track layer
+        let trackLayer = CAShapeLayer()
+        
+        let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi, clockwise: true)
+        trackLayer.path = circularPath.cgPath
+        
+        trackLayer.strokeColor = UIColor.lightGray.cgColor
+        trackLayer.lineWidth = 10
+        trackLayer.fillColor = UIColor.clear.cgColor
+        trackLayer.lineCap = CAShapeLayerLineCap.round
+        view.layer.addSublayer(trackLayer)
+        
+        //        let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi, clockwise: true)
+        shapeLayer.path = circularPath.cgPath
+        
+        shapeLayer.strokeColor = UIColor.red.cgColor
+        shapeLayer.lineWidth = 10
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.lineCap = CAShapeLayerLineCap.round
+        
+        shapeLayer.strokeEnd = 0
+        
+        view.layer.addSublayer(shapeLayer)
+        
         // Do any additional setup after loading the view.
         lbPrueba.text? = arr[0] as! String
+        
+        carga()
     }
     
 
@@ -34,5 +67,45 @@ class ViewControllerCargaPreguntas: UIViewController {
         vista.arrPreguntas = arr
     }
     
+    
+    func carga(){
+        print("Attempting to animate stroke")
+        
+        despliegaSegundos()
+        
+        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        
+        basicAnimation.toValue = 1
+        
+        basicAnimation.duration = 5
+        
+        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+        basicAnimation.isRemovedOnCompletion = false
+        
+        shapeLayer.add(basicAnimation, forKey: "urSoBasic")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+            self.performSegue(withIdentifier: "preguntas", sender: self)
+        })
+    }
+    
+    func despliegaSegundos(){
+        lbSegundos.text = "5"
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            self.lbSegundos.text = "4"
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+            self.lbSegundos.text = "3"
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+            self.lbSegundos.text = "2"
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
+            self.lbSegundos.text = "1"
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+            self.lbSegundos.text = "0"
+        })
+    }
 
 }

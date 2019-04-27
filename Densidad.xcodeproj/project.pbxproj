@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2825531A2259984800B39206 /* ViewControllerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282553192259984800B39206 /* ViewControllerSettings.swift */; };
+		913179BB2274BDFA00C77B69 /* ViewControllerAprende.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913179BA2274BDF900C77B69 /* ViewControllerAprende.swift */; };
+		913179BE2274BF2200C77B69 /* Documento-2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 913179BD2274BF2100C77B69 /* Documento-2.pdf */; };
+		913179C02274C5F200C77B69 /* doc2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 913179BF2274C5F200C77B69 /* doc2.pdf */; };
+		913179C22274C60600C77B69 /* doc3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 913179C12274C60600C77B69 /* doc3.pdf */; };
+		913179C62274DFD600C77B69 /* Resultado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913179C52274DFD600C77B69 /* Resultado.swift */; };
 		9162B6B62246A73E0067AE5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9162B6B52246A73E0067AE5B /* AppDelegate.swift */; };
 		9162B6B82246A73E0067AE5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9162B6B72246A73E0067AE5B /* ViewController.swift */; };
 		9162B6BB2246A73E0067AE5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9162B6B92246A73E0067AE5B /* Main.storyboard */; };
@@ -27,6 +32,11 @@
 
 /* Begin PBXFileReference section */
 		282553192259984800B39206 /* ViewControllerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSettings.swift; sourceTree = "<group>"; };
+		913179BA2274BDF900C77B69 /* ViewControllerAprende.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAprende.swift; sourceTree = "<group>"; };
+		913179BD2274BF2100C77B69 /* Documento-2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Documento-2.pdf"; sourceTree = "<group>"; };
+		913179BF2274C5F200C77B69 /* doc2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = doc2.pdf; sourceTree = "<group>"; };
+		913179C12274C60600C77B69 /* doc3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = doc3.pdf; sourceTree = "<group>"; };
+		913179C52274DFD600C77B69 /* Resultado.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resultado.swift; sourceTree = "<group>"; };
 		9162B6B22246A73E0067AE5B /* Densidad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Densidad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9162B6B52246A73E0067AE5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9162B6B72246A73E0067AE5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,9 +67,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		913179BC2274BEB200C77B69 /* PDF */ = {
+			isa = PBXGroup;
+			children = (
+				913179BD2274BF2100C77B69 /* Documento-2.pdf */,
+				913179BF2274C5F200C77B69 /* doc2.pdf */,
+				913179C12274C60600C77B69 /* doc3.pdf */,
+			);
+			path = PDF;
+			sourceTree = "<group>";
+		};
 		9162B6A92246A73E0067AE5B = {
 			isa = PBXGroup;
 			children = (
+				913179C52274DFD600C77B69 /* Resultado.swift */,
+				913179BA2274BDF900C77B69 /* ViewControllerAprende.swift */,
 				91C6897F22597B7E0071E0C7 /* ViewControllerResultados.swift */,
 				9162B6B42246A73E0067AE5B /* Densidad */,
 				9162B6B32246A73E0067AE5B /* Products */,
@@ -77,12 +99,12 @@
 		9162B6B42246A73E0067AE5B /* Densidad */ = {
 			isa = PBXGroup;
 			children = (
+				913179BC2274BEB200C77B69 /* PDF */,
 				9162B6B52246A73E0067AE5B /* AppDelegate.swift */,
 				9162B6B72246A73E0067AE5B /* ViewController.swift */,
 				9162B6C72246D1130067AE5B /* ViewControllerExperimenta.swift */,
 				282553192259984800B39206 /* ViewControllerSettings.swift */,
 				9162B6CF2246E49E0067AE5B /* LCWaveView.swift */,
-				9162B6B92246A73E0067AE5B /* Main.storyboard */,
 				91C6897B22594E970071E0C7 /* Pregunta.swift */,
 				91C6897D225951800071E0C7 /* Property List.plist */,
 				91C6897922594DF30071E0C7 /* ViewControllerCargaPreguntas.swift */,
@@ -156,8 +178,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				913179BE2274BF2200C77B69 /* Documento-2.pdf in Resources */,
+				913179C22274C60600C77B69 /* doc3.pdf in Resources */,
 				9162B6C02246A7460067AE5B /* LaunchScreen.storyboard in Resources */,
 				9162B6BD2246A7460067AE5B /* Assets.xcassets in Resources */,
+				913179C02274C5F200C77B69 /* doc2.pdf in Resources */,
 				9162B6CC2246E0500067AE5B /* agua fondo.gif in Resources */,
 				91C6897E225951800071E0C7 /* Property List.plist in Resources */,
 				9162B6BB2246A73E0067AE5B /* Main.storyboard in Resources */,
@@ -175,9 +200,11 @@
 				9162B6B82246A73E0067AE5B /* ViewController.swift in Sources */,
 				9162B6B62246A73E0067AE5B /* AppDelegate.swift in Sources */,
 				9162B6C82246D1130067AE5B /* ViewControllerExperimenta.swift in Sources */,
+				913179BB2274BDFA00C77B69 /* ViewControllerAprende.swift in Sources */,
 				91C6897C22594E970071E0C7 /* Pregunta.swift in Sources */,
 				9162B6CA2246DD740067AE5B /* gifExperimenta.swift in Sources */,
 				91C6897822594BF70071E0C7 /* TableViewControllerPreguntas.swift in Sources */,
+				913179C62274DFD600C77B69 /* Resultado.swift in Sources */,
 				91C6897622594B140071E0C7 /* ViewControllerCuestionate.swift in Sources */,
 				91C6898022597B7E0071E0C7 /* ViewControllerResultados.swift in Sources */,
 				91C6897A22594DF30071E0C7 /* ViewControllerCargaPreguntas.swift in Sources */,

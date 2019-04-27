@@ -8,9 +8,13 @@
 
 import UIKit
 
+
 class TableViewControllerPreguntas: UITableViewController {
 
     var arrDiccionario : NSArray!
+    
+    var resultados = [Resultado]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +22,9 @@ class TableViewControllerPreguntas: UITableViewController {
         let path = Bundle.main.path(forResource: "Property List", ofType : "plist")
         
         arrDiccionario = NSArray(contentsOfFile: path!)
+        
+        obtenerResultados()
+
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -47,12 +54,47 @@ class TableViewControllerPreguntas: UITableViewController {
         let tema = (dicc[0] as! String)
         
         cell.textLabel?.text = tema
+        cell.detailTextLabel?.text = "Resultado Anterior: " + regresaResultado(tema: tema)
         
         return cell
     }
     
+    func regresaResultado(tema: String) -> String{
+        
+        for i in resultados{
+            if (i.tema == tema){
+                return String(i.result)
+            }
+        }
+        return "0"
+    }
     
+    
+    func retrieveResultados() -> [Resultado]? {
+        do{
+            let data = try Data.init(contentsOf: Resultado.archiveURL)
+            let empTmp = try
+                PropertyListDecoder().decode([Resultado].self, from: data)
+            return empTmp
+        }
+        catch{
+            print("nada perro")
+            return nil
+        }
+    }
+    
+    func obtenerResultados(){
+        resultados.removeAll()
+        
+        guard let empTmp = retrieveResultados() else { return }
+        
+        for i in empTmp{
+            print(i.tema)
+        }
+        resultados = empTmp
+    }
  
+    
 
     /*
     // Override to support conditional editing of the table view.
