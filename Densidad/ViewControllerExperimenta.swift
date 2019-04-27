@@ -29,6 +29,12 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var objeto1: UIImageView!
     @IBOutlet weak var objeto2: UIImageView!
     
+    //Vaso
+    @IBOutlet weak var vaso: UIImageView!
+    @IBOutlet weak var vasoDown: UIImageView!
+    @IBOutlet weak var opacidadVista: UIView!
+    
+    
     
     private lazy var waveView: LCWaveView = {
         let waveView = LCWaveView(frame: CGRect(x: 0, y: 0, width: vistaOpacidad.bounds.size.width , height: 0 ), color: UIColor.black)
@@ -112,7 +118,8 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
             //self.submerging(objeto: self.objeto1)
             if ( densidad > (densidadLiquido/1000)  ){
                 UIView.animate(withDuration: 5){
-                    self.objeto1.frame.origin.y = 440
+                    self.objeto1.frame.origin.y = self.opacidadVista.frame.origin.y + self.opacidadVista.frame.height - self.objeto1.frame.height*1.5
+                    
                     
                 }
                 
@@ -120,13 +127,13 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
             
             if ( densidad < (densidadLiquido/1000)  ){
                 UIView.animate(withDuration: 5){
-                    self.objeto1.frame.origin.y = 200
+                    self.objeto1.frame.origin.y = self.opacidadVista.frame.origin.y - self.objeto1.frame.height * 0.5
                 }
             }
             
             if ( densidad == (densidadLiquido/1000)  ){
                 UIView.animate(withDuration: 5){
-                    self.objeto1.frame.origin.y = 350
+                    self.objeto1.frame.origin.y = self.opacidadVista.frame.origin.y + self.opacidadVista.frame.height*0.5 - self.objeto1.frame.height*0.5
                 }
                 
             }
@@ -146,18 +153,18 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
             
             if ( densidad > (densidadLiquido/1000)  ){
                 UIView.animate(withDuration: 5){
-                    self.objeto2.frame.origin.y = 440
+                    self.objeto2.frame.origin.y = self.opacidadVista.frame.origin.y + self.opacidadVista.frame.height - self.objeto2.frame.height*1.5
                 }
             }
             
             if ( densidad < (densidadLiquido/1000)  ){
                 UIView.animate(withDuration: 5){
-                    self.objeto2.frame.origin.y = 200
+                    self.objeto2.frame.origin.y = self.opacidadVista.frame.origin.y - self.objeto2.frame.height * 0.5
                 }
             }
             if ( densidad == (densidadLiquido/1000)  ){
                 UIView.animate(withDuration: 5){
-                    self.objeto2.frame.origin.y = 350
+                    self.objeto2.frame.origin.y = self.opacidadVista.frame.origin.y + self.opacidadVista.frame.height*0.5 - self.objeto2.frame.height*0.5
                 }
             }
         }

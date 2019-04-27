@@ -13,6 +13,8 @@
 		913179C02274C5F200C77B69 /* doc2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 913179BF2274C5F200C77B69 /* doc2.pdf */; };
 		913179C22274C60600C77B69 /* doc3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 913179C12274C60600C77B69 /* doc3.pdf */; };
 		913179C62274DFD600C77B69 /* Resultado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913179C52274DFD600C77B69 /* Resultado.swift */; };
+		28EA7EC92274CEBF00F77E66 /* sonido.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 28EA7EC82274CEBE00F77E66 /* sonido.mp3 */; };
+		28EA7ECC2274CEF000F77E66 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EA7ECB2274CEF000F77E66 /* AVFoundation.framework */; };
 		9162B6B62246A73E0067AE5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9162B6B52246A73E0067AE5B /* AppDelegate.swift */; };
 		9162B6B82246A73E0067AE5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9162B6B72246A73E0067AE5B /* ViewController.swift */; };
 		9162B6BB2246A73E0067AE5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9162B6B92246A73E0067AE5B /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 		913179BF2274C5F200C77B69 /* doc2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = doc2.pdf; sourceTree = "<group>"; };
 		913179C12274C60600C77B69 /* doc3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = doc3.pdf; sourceTree = "<group>"; };
 		913179C52274DFD600C77B69 /* Resultado.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resultado.swift; sourceTree = "<group>"; };
+		28EA7EC82274CEBE00F77E66 /* sonido.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sonido.mp3; sourceTree = SOURCE_ROOT; };
+		28EA7ECB2274CEF000F77E66 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9162B6B22246A73E0067AE5B /* Densidad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Densidad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9162B6B52246A73E0067AE5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9162B6B72246A73E0067AE5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28EA7ECC2274CEF000F77E66 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,7 @@
 				91C6897F22597B7E0071E0C7 /* ViewControllerResultados.swift */,
 				9162B6B42246A73E0067AE5B /* Densidad */,
 				9162B6B32246A73E0067AE5B /* Products */,
+				28EA7ECA2274CEF000F77E66 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +119,7 @@
 				9162B6C92246DD740067AE5B /* gifExperimenta.swift */,
 				9162B6B92246A73E0067AE5B /* Main.storyboard */,
 				9162B6BC2246A7460067AE5B /* Assets.xcassets */,
+				28EA7EC82274CEBE00F77E66 /* sonido.mp3 */,
 				9162B6CB2246E04F0067AE5B /* agua fondo.gif */,
 				9162B6BE2246A7460067AE5B /* LaunchScreen.storyboard */,
 				9162B6C12246A7460067AE5B /* Info.plist */,
@@ -185,6 +192,7 @@
 				913179C02274C5F200C77B69 /* doc2.pdf in Resources */,
 				9162B6CC2246E0500067AE5B /* agua fondo.gif in Resources */,
 				91C6897E225951800071E0C7 /* Property List.plist in Resources */,
+				28EA7EC92274CEBF00F77E66 /* sonido.mp3 in Resources */,
 				9162B6BB2246A73E0067AE5B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
