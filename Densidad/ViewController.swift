@@ -49,9 +49,13 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         else {
             if( segue.identifier == "aprende" ){
                 
-                let vista = segue.destination as! UINavigationController
+                let navegationController = segue.destination as! UINavigationController
                 
+                let viewController = navegationController.topViewController as! ViewControllerAprende
                 
+                viewController.bgColor = bgColor
+                
+
             }
             else if( segue.identifier == "experimenta" ){
                 
@@ -63,7 +67,8 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
                 
                 let vista = segue.destination as! TableViewControllerPreguntas
                 
-                vista.bgColor = bgColor
+                vista.bgColor = self.bgColor
+                
             }
         }
         

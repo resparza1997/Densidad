@@ -21,6 +21,8 @@ class ViewControllerCargaPreguntas: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.hidesBackButton = true
+        
         view.backgroundColor = bgColor
         
         // let's start by drawing a circle somehow
@@ -34,7 +36,7 @@ class ViewControllerCargaPreguntas: UIViewController {
         trackLayer.path = circularPath.cgPath
         
         trackLayer.strokeColor = UIColor.lightGray.cgColor
-        trackLayer.lineWidth = 10
+        trackLayer.lineWidth = 20
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.lineCap = CAShapeLayerLineCap.round
         view.layer.addSublayer(trackLayer)
@@ -42,8 +44,8 @@ class ViewControllerCargaPreguntas: UIViewController {
         //        let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi, clockwise: true)
         shapeLayer.path = circularPath.cgPath
         
-        shapeLayer.strokeColor = UIColor.red.cgColor
-        shapeLayer.lineWidth = 10
+        shapeLayer.strokeColor = UIColor.blue.cgColor
+        shapeLayer.lineWidth = 20
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         
@@ -68,12 +70,13 @@ class ViewControllerCargaPreguntas: UIViewController {
         
         let vista = segue.destination as! ViewControllerCuestionate
         
+        vista.bgColor = self.bgColor
+        
         vista.arrPreguntas = arr
     }
     
     
     func carga(){
-        print("Attempting to animate stroke")
         
         despliegaSegundos()
         

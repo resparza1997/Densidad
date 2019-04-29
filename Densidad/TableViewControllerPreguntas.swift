@@ -20,12 +20,10 @@ class TableViewControllerPreguntas: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let button = UIBarButtonItem(image: UIImage(named: "logo"), style: .plain, target: self, action: Selector("action"))
-        
-        self.navigationItem.rightBarButtonItem = button
         
         
         view.backgroundColor = bgColor
+        
         
         let path = Bundle.main.path(forResource: "Property List", ofType : "plist")
         
@@ -147,12 +145,18 @@ class TableViewControllerPreguntas: UITableViewController {
         // Pass the selected object to the new view controller.
         
         let vista = segue.destination as! ViewControllerCargaPreguntas
+
+        vista.bgColor = self.bgColor
         
         let indexPath = tableView.indexPathForSelectedRow!
         
         let dicc = arrDiccionario[indexPath.row] as! NSArray
         
         vista.arr = dicc
+        
+    }
+    
+    @IBAction func unwindRegresaCuestionate(segue: UIStoryboardSegue){
         
     }
     

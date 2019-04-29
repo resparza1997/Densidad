@@ -25,10 +25,16 @@ class ViewControllerCuestionate: UIViewController {
     var respuestaRandom = ["","","",""]
     var arr = [Int]()
     
-    
+    var bgColor: UIColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = bgColor
+        
+        self.navigationItem.hidesBackButton = true
+
+        
         // Do any additional setup after loading the view.
         Terminar.isHidden = true
         cargaPregunta()
@@ -146,6 +152,8 @@ class ViewControllerCuestionate: UIViewController {
         // Pass the selected object to the new view controller.
         
         let vista = segue.destination as! ViewControllerResultados
+        
+        vista.bgColor = self.bgColor
 
         
         vista.arrPreguntas = (arrPreguntas as! NSMutableArray)

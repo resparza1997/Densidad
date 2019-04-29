@@ -22,8 +22,15 @@ class ViewControllerResultados: UIViewController, UITableViewDelegate , UITableV
     var califPorRespuesta = 0
     var tema = ""
     
+    var bgColor: UIColor!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = bgColor
+        
+        self.navigationItem.hidesBackButton = true
+        
         index = 0
         //print(arrPreguntas[0])
         tema = arrPreguntas[0] as! String

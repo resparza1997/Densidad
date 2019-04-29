@@ -15,10 +15,14 @@ class ViewControllerAprende: UIViewController {
     let doc3 = "doc3"
     
     
+    var bgColor: UIColor!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
+        view.backgroundColor = bgColor
         // Do any additional setup after loading the view.
     }
     
