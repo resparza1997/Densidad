@@ -61,6 +61,8 @@ class TableViewControllerPreguntas: UITableViewController {
         cell.textLabel?.text = tema
         cell.detailTextLabel?.text = "Resultado Anterior: " + regresaResultado(tema: tema)
         
+        cell.backgroundColor = bgColor
+        
         return cell
     }
     
@@ -157,7 +159,7 @@ class TableViewControllerPreguntas: UITableViewController {
     }
     
     @IBAction func unwindRegresaCuestionate(segue: UIStoryboardSegue){
-        
+        obtenerResultados()
     }
     
     

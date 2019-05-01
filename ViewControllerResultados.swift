@@ -34,6 +34,9 @@ class ViewControllerResultados: UIViewController, UITableViewDelegate , UITableV
         index = 0
         //print(arrPreguntas[0])
         tema = arrPreguntas[0] as! String
+        
+        self.title = tema
+        
         //print(aux[1])
         //print(respuestas[0])
         //print(respuestas[1])
@@ -66,9 +69,11 @@ class ViewControllerResultados: UIViewController, UITableViewDelegate , UITableV
         //let arrBien = arrPreguntas[indexPath.row + 1]
         //let respBien = arrBien[1] as String
         
-        cell.textLabel?.text = respUsua
-        
         let aux = arrPreguntas[index + 1] as! [String]
+        
+        cell.textLabel?.text = aux[0]
+        
+        cell.detailTextLabel?.text = respUsua
         
         let auxRespCorrecta = aux[1]
         let auxRespUsuario = respuestas2[index]
@@ -78,11 +83,11 @@ class ViewControllerResultados: UIViewController, UITableViewDelegate , UITableV
         //print("resp " + auxRespUsuario)
         
         if( auxRespUsuario == auxRespCorrecta ){
-            cell.backgroundColor = UIColor.green
+            cell.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         }
         else{
             calif -= califPorRespuesta
-            cell.backgroundColor = UIColor.red
+            cell.backgroundColor = UIColor.red.withAlphaComponent(0.5)
         }
         
         lbCalif.text = String(calif) + " / 100"

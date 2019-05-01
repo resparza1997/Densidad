@@ -32,6 +32,9 @@ class ViewControllerCuestionate: UIViewController {
         
         view.backgroundColor = bgColor
         
+       let tema = arrPreguntas[0]
+        
+        self.title = (tema as! String)
         self.navigationItem.hidesBackButton = true
 
         

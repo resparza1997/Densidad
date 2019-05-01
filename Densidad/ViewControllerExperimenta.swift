@@ -36,8 +36,29 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
     
     var bgColor: UIColor!
     
-    private lazy var waveView: LCWaveView = {
-        let waveView = LCWaveView(frame: CGRect(x: 0, y: 0, width: vistaOpacidad.bounds.size.width , height: 0 ), color: UIColor.black)
+    private lazy var waveView1: LCWaveView = {
+        let waveView = LCWaveView(frame: CGRect(x: 0, y: 0, width: vistaOpacidad.bounds.size.width , height: 0 ), color: UIColor.blue)
+        waveView.waveRate = 2
+        waveView.waveSpeed = 1
+        waveView.waveHeight = 7
+        return waveView
+    }()
+    private lazy var waveView2: LCWaveView = {
+        let waveView = LCWaveView(frame: CGRect(x: 0, y: 0, width: vistaOpacidad.bounds.size.width , height: 0 ), color: UIColor.yellow)
+        waveView.waveRate = 2
+        waveView.waveSpeed = 1
+        waveView.waveHeight = 7
+        return waveView
+    }()
+    private lazy var waveView3: LCWaveView = {
+        let waveView = LCWaveView(frame: CGRect(x: 0, y: 0, width: vistaOpacidad.bounds.size.width , height: 0 ), color: UIColor(red: 0.898, green: 0.6745, blue: 0, alpha: 0.5) )
+        waveView.waveRate = 2
+        waveView.waveSpeed = 1
+        waveView.waveHeight = 7
+        return waveView
+    }()
+    private lazy var waveView4: LCWaveView = {
+        let waveView = LCWaveView(frame: CGRect(x: 0, y: 0, width: vistaOpacidad.bounds.size.width , height: 0 ), color: UIColor(red: 0.9882, green: 0.9686, blue: 0.8784, alpha: 0.5) )
         waveView.waveRate = 2
         waveView.waveSpeed = 1
         waveView.waveHeight = 7
@@ -61,8 +82,11 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
         
         //Waves
         gifLiquido.loadGif(name: "agua fondo")
-        waveView.startWave()
-        vistaOpacidad.addSubview(waveView)
+        waveView1.startWave()
+        vistaOpacidad.addSubview(waveView1)
+        vistaOpacidad.addSubview(waveView2)
+        vistaOpacidad.addSubview(waveView3)
+        vistaOpacidad.addSubview(waveView4)
 
         vistaOpacidad.backgroundColor = UIColor.blue.withAlphaComponent(0.5)
 
@@ -194,6 +218,13 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
         
         //Agua
         if(row == 0){
+            
+            waveView2.stopWave()
+            waveView3.stopWave()
+            waveView4.stopWave()
+            waveView1.startWave()
+            
+            
             vistaOpacidad.backgroundColor = UIColor.blue.withAlphaComponent(0.5)
             densidadLiquido = Double(densidadesLiquidos[row])
             calculaDensidad()
@@ -201,6 +232,10 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
         
         //Agua de mar
         if(row == 1){
+            waveView2.stopWave()
+            waveView3.stopWave()
+            waveView4.stopWave()
+            waveView1.startWave()
             vistaOpacidad.backgroundColor = UIColor.blue.withAlphaComponent(0.5)
             densidadLiquido = Double(densidadesLiquidos[row])
             calculaDensidad()
@@ -208,6 +243,10 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
         
         //Aceite
         if(row == 2){
+            waveView1.stopWave()
+            waveView3.stopWave()
+            waveView4.stopWave()
+           waveView2.startWave()
             vistaOpacidad.backgroundColor = UIColor.yellow.withAlphaComponent(0.5)
             densidadLiquido = Double(densidadesLiquidos[row])
             calculaDensidad()
@@ -215,6 +254,11 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
         
         //Gasolina
         if(row == 3){
+           
+            waveView1.stopWave()
+            waveView2.stopWave()
+            waveView4.stopWave()
+            waveView3.startWave()
             vistaOpacidad.backgroundColor = UIColor(red: 0.898, green: 0.6745, blue: 0, alpha: 0.5) /* #e5ac00 */
             densidadLiquido = Double(densidadesLiquidos[row])
             calculaDensidad()
@@ -222,6 +266,11 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
         
         //Alcohol
         if(row == 4){
+           
+            waveView1.stopWave()
+            waveView3.stopWave()
+            waveView2.stopWave()
+            waveView4.startWave()
             vistaOpacidad.backgroundColor = UIColor(red: 0.9882, green: 0.9686, blue: 0.8784, alpha: 0.5) /* #fcf7e0 */
             densidadLiquido = Double(densidadesLiquidos[row])
             calculaDensidad()

@@ -9,12 +9,15 @@
 import UIKit
 
 class ViewControllerCargaPreguntas: UIViewController {
+    @IBOutlet weak var botonBye: UIButton!
     
+    @IBOutlet weak var lbFunFact: UILabel!
     let shapeLayer = CAShapeLayer()
     
-    @IBOutlet weak var lbPrueba: UILabel!
     var arr : NSArray!
     @IBOutlet weak var lbSegundos: UILabel!
+    
+    var arregloFunFact = [String]()
     
     var bgColor: UIColor!
     
@@ -26,6 +29,8 @@ class ViewControllerCargaPreguntas: UIViewController {
         view.backgroundColor = bgColor
         
         // let's start by drawing a circle somehow
+        
+        botonBye.isHidden = true
         
         let center = view.center
         
@@ -54,11 +59,28 @@ class ViewControllerCargaPreguntas: UIViewController {
         view.layer.addSublayer(shapeLayer)
         
         // Do any additional setup after loading the view.
-        lbPrueba.text? = arr[0] as! String
         
         carga()
+        
+        arregloFunFact.append("Sabias que 1")
+        arregloFunFact.append("Sabias que 2")
+        arregloFunFact.append("Sabias que 3")
+        arregloFunFact.append("Sabias que 4")
+        
+        funFact()
+        
     }
     
+    func funFact(){
+        var ran: Int = 0
+        let ranMax: Int = arregloFunFact.count
+        
+            ran = Int.random(in: 0...ranMax - 1)
+            
+            print(ran)
+        
+        lbFunFact.text = arregloFunFact[ran]
+    }
 
     
     // MARK: - Navigation
@@ -84,7 +106,7 @@ class ViewControllerCargaPreguntas: UIViewController {
         
         basicAnimation.toValue = 1
         
-        basicAnimation.duration = 5
+        basicAnimation.duration = 6
         
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
