@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2825531A2259984800B39206 /* ViewControllerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282553192259984800B39206 /* ViewControllerSettings.swift */; };
+		288FD7332279F736002E0016 /* ViewControllerInformacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288FD7322279F736002E0016 /* ViewControllerInformacion.swift */; };
 		28EA7EC92274CEBF00F77E66 /* sonido.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 28EA7EC82274CEBE00F77E66 /* sonido.mp3 */; };
 		28EA7ECC2274CEF000F77E66 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EA7ECB2274CEF000F77E66 /* AVFoundation.framework */; };
 		913179BB2274BDFA00C77B69 /* ViewControllerAprende.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913179BA2274BDF900C77B69 /* ViewControllerAprende.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		282553192259984800B39206 /* ViewControllerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSettings.swift; sourceTree = "<group>"; };
+		288FD7322279F736002E0016 /* ViewControllerInformacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInformacion.swift; sourceTree = "<group>"; };
 		28EA7EC82274CEBE00F77E66 /* sonido.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sonido.mp3; sourceTree = SOURCE_ROOT; };
 		28EA7ECB2274CEF000F77E66 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		913179BA2274BDF900C77B69 /* ViewControllerAprende.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAprende.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				91C6897522594B140071E0C7 /* ViewControllerCuestionate.swift */,
 				9162B6C92246DD740067AE5B /* gifExperimenta.swift */,
 				9162B6B92246A73E0067AE5B /* Main.storyboard */,
+				288FD7322279F736002E0016 /* ViewControllerInformacion.swift */,
 				9162B6BC2246A7460067AE5B /* Assets.xcassets */,
 				28EA7EC82274CEBE00F77E66 /* sonido.mp3 */,
 				9162B6CB2246E04F0067AE5B /* agua fondo.gif */,
@@ -222,6 +225,7 @@
 				913179BB2274BDFA00C77B69 /* ViewControllerAprende.swift in Sources */,
 				9182AD8022751DE000C8885A /* TableViewControllerPreguntas.swift in Sources */,
 				9182AD7E2275146B00C8885A /* ViewControllerTemas.swift in Sources */,
+				288FD7332279F736002E0016 /* ViewControllerInformacion.swift in Sources */,
 				91C6897C22594E970071E0C7 /* Pregunta.swift in Sources */,
 				9162B6CA2246DD740067AE5B /* gifExperimenta.swift in Sources */,
 				913179C62274DFD600C77B69 /* Resultado.swift in Sources */,

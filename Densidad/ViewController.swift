@@ -11,6 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, AVAudioPlayerDelegate {
 
+    @IBOutlet weak var btInfo: UIButton!
     @IBOutlet weak var btSettings: UIButton!
     var player: AVAudioPlayer = AVAudioPlayer()
     
@@ -63,7 +64,12 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
                 
                 vista.bgColor = bgColor
             }
-            else{
+            else if(sender as! UIButton) == btInfo{
+                let vista = segue.destination as! ViewControllerInformacion
+                vista.popoverPresentationController!.delegate = self
+                vista.bgColor = bgColor
+            
+            } else{
                 
                 let vista = segue.destination as! TableViewControllerPreguntas
                 
