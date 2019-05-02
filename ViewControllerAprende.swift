@@ -10,9 +10,9 @@ import UIKit
 
 class ViewControllerAprende: UIViewController {
 
-    let doc1 = "Documento-2"
-    let doc2 = "doc2"
-    let doc3 = "doc3"
+    let doc1 = "Densidad tradicional"
+    let doc2 = "Densidad lineal"
+    let doc3 = "Densidad Media"
     
     
     var bgColor: UIColor!

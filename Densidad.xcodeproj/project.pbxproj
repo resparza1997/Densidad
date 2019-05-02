@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28138D61227B5F00000F3E87 /* Densidad tradicional.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 28138D5D227B5F00000F3E87 /* Densidad tradicional.pdf */; };
+		28138D62227B5F00000F3E87 /* Densidad Media.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 28138D5E227B5F00000F3E87 /* Densidad Media.pdf */; };
+		28138D63227B5F00000F3E87 /* Densidad lineal.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 28138D5F227B5F00000F3E87 /* Densidad lineal.pdf */; };
+		28138D64227B5F00000F3E87 /* Densidad superficial.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 28138D60227B5F00000F3E87 /* Densidad superficial.pdf */; };
 		2825531A2259984800B39206 /* ViewControllerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282553192259984800B39206 /* ViewControllerSettings.swift */; };
 		288FD7332279F736002E0016 /* ViewControllerInformacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288FD7322279F736002E0016 /* ViewControllerInformacion.swift */; };
 		28EA7EC92274CEBF00F77E66 /* sonido.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 28EA7EC82274CEBE00F77E66 /* sonido.mp3 */; };
@@ -35,6 +39,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28138D5D227B5F00000F3E87 /* Densidad tradicional.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Densidad tradicional.pdf"; sourceTree = "<group>"; };
+		28138D5E227B5F00000F3E87 /* Densidad Media.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Densidad Media.pdf"; sourceTree = "<group>"; };
+		28138D5F227B5F00000F3E87 /* Densidad lineal.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Densidad lineal.pdf"; sourceTree = "<group>"; };
+		28138D60227B5F00000F3E87 /* Densidad superficial.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Densidad superficial.pdf"; sourceTree = "<group>"; };
 		282553192259984800B39206 /* ViewControllerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSettings.swift; sourceTree = "<group>"; };
 		288FD7322279F736002E0016 /* ViewControllerInformacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInformacion.swift; sourceTree = "<group>"; };
 		28EA7EC82274CEBE00F77E66 /* sonido.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sonido.mp3; sourceTree = SOURCE_ROOT; };
@@ -80,6 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				913179BD2274BF2100C77B69 /* Documento-2.pdf */,
+				28138D5F227B5F00000F3E87 /* Densidad lineal.pdf */,
+				28138D5E227B5F00000F3E87 /* Densidad Media.pdf */,
+				28138D60227B5F00000F3E87 /* Densidad superficial.pdf */,
+				28138D5D227B5F00000F3E87 /* Densidad tradicional.pdf */,
 				913179BF2274C5F200C77B69 /* doc2.pdf */,
 				913179C12274C60600C77B69 /* doc3.pdf */,
 			);
@@ -199,12 +211,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28138D61227B5F00000F3E87 /* Densidad tradicional.pdf in Resources */,
 				913179BE2274BF2200C77B69 /* Documento-2.pdf in Resources */,
+				28138D64227B5F00000F3E87 /* Densidad superficial.pdf in Resources */,
+				28138D62227B5F00000F3E87 /* Densidad Media.pdf in Resources */,
 				913179C22274C60600C77B69 /* doc3.pdf in Resources */,
 				9162B6C02246A7460067AE5B /* LaunchScreen.storyboard in Resources */,
 				9162B6BD2246A7460067AE5B /* Assets.xcassets in Resources */,
 				913179C02274C5F200C77B69 /* doc2.pdf in Resources */,
 				9162B6CC2246E0500067AE5B /* agua fondo.gif in Resources */,
+				28138D63227B5F00000F3E87 /* Densidad lineal.pdf in Resources */,
 				91C6897E225951800071E0C7 /* Property List.plist in Resources */,
 				28EA7EC92274CEBF00F77E66 /* sonido.mp3 in Resources */,
 				9162B6BB2246A73E0067AE5B /* Main.storyboard in Resources */,
@@ -379,12 +395,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QC5FCLKM86;
 				INFOPLIST_FILE = Densidad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ITESM.Densidad;
+				PRODUCT_BUNDLE_IDENTIFIER = ITESM.Density;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -396,12 +413,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QC5FCLKM86;
 				INFOPLIST_FILE = Densidad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ITESM.Densidad;
+				PRODUCT_BUNDLE_IDENTIFIER = ITESM.Density;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
