@@ -16,6 +16,7 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
     var densidadesLiquidos = ["1000", "1027", "920", "680", "720"]
     var densidadLiquido : Double!
     
+    var prueba : CGFloat = 0
     
     @IBOutlet weak var vistaOpacidad: UIView!
     @IBOutlet weak var gifLiquido: UIImageView!
@@ -65,8 +66,20 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
         return waveView
     }()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.objeto1.frame.origin.y = self.vaso.frame.origin.y
+        self.objeto1.center.x = self.view.center.x
+        
+        
+        self.objeto2.frame.origin.y = self.vaso.frame.origin.y //- (self.objeto2.frame.height / 2)
+        
+        self.objeto2.frame.origin.x = self.opacidadVista.frame.origin.x * 1.75
+       
+        //let calculo = self.opacidadVista.frame.width
         
         view.backgroundColor = bgColor
         
@@ -115,25 +128,15 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
         // Pass the selected object to the new view controller.
     }
     */
-    
-    @IBAction func submerging(objeto : UIView){
-        
-            UIView.animate(withDuration: 1, animations: {
-                objeto.frame.origin.x += 15
-            }){_ in
-                UIView.animateKeyframes(withDuration: 1.4, delay: 0.5, options: [.autoreverse, .repeat], animations: {
-                    objeto.frame.origin.x -= 15
-                })
-            }
-   
-    }
-    
 
     
     //Función que calcula la densidad
     @IBAction func calculaDensidad() {
-       
+        
+        
         view.endEditing(true)
+        
+        //Objeto 1
         if ( gramos1.text != "0" && volumen1.text != "0" && gramos1.text != "" && volumen1.text != ""){
             let peso = Double(gramos1.text!)
             let volumen = Double(volumen1.text!)
@@ -142,20 +145,36 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
             
             densidad1.text = String(densidad)
             
-            //self.submerging(objeto: self.objeto1)
+           
             if ( densidad > (densidadLiquido/1000)  ){
-                UIView.animate(withDuration: 5){
-                    self.objeto1.frame.origin.y = self.opacidadVista.frame.origin.y + self.opacidadVista.frame.height - self.objeto1.frame.height*1.5
+                
+                if(densidad <= 100){
+                    UIView.animate(withDuration: 6){
+                        self.objeto1.frame.origin.y = self.vasoDown.frame.origin.y - (self.objeto1.frame.height * 0.5)
+                    }
+                } else if (densidad <= 500){
+                    UIView.animate(withDuration: 4){
+                        self.objeto1.frame.origin.y = self.vasoDown.frame.origin.y - (self.objeto1.frame.height * 0.5)
+                    }
                     
+                } else if (densidad > 500){
+                    UIView.animate(withDuration: 2){
+                        self.objeto1.frame.origin.y = self.vasoDown.frame.origin.y - (self.objeto1.frame.height * 0.5)
+                    }
                     
                 }
                 
             }
             
+            
+            
+            
             if ( densidad < (densidadLiquido/1000)  ){
+                
                 UIView.animate(withDuration: 5){
                     self.objeto1.frame.origin.y = self.opacidadVista.frame.origin.y - self.objeto1.frame.height * 0.5
                 }
+                
             }
             
             if ( densidad == (densidadLiquido/1000)  ){
@@ -163,12 +182,14 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
                     self.objeto1.frame.origin.y = self.opacidadVista.frame.origin.y + self.opacidadVista.frame.height*0.5 - self.objeto1.frame.height*0.5
                 }
                 
+                
             }
             
            
             
         }
-        
+        /*
+        //Objeto 2
         if ( gramos2.text != "0" && volumen2.text != "0" && gramos2.text != "" && volumen2.text != ""){
             let peso = Double(gramos2.text!)
             let volumen = Double(volumen2.text!)
@@ -176,7 +197,7 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
             let densidad :Double = peso! / volumen!
             
             densidad2.text = String(densidad)
-            //self.submerging(objeto: self.objeto2)
+            
             
             if ( densidad > (densidadLiquido/1000)  ){
                 UIView.animate(withDuration: 5){
@@ -194,7 +215,7 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
                     self.objeto2.frame.origin.y = self.opacidadVista.frame.origin.y + self.opacidadVista.frame.height*0.5 - self.objeto2.frame.height*0.5
                 }
             }
-        }
+        }*/
         
         
     }
