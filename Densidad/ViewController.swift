@@ -66,7 +66,6 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             }
             else if(sender as! UIButton) == btInfo{
                 let vista = segue.destination as! ViewControllerInformacion
-                vista.popoverPresentationController!.delegate = self
                 vista.bgColor = bgColor
             
             } else{

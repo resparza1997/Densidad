@@ -26,6 +26,7 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var volumen2: UITextField!
     @IBOutlet weak var densidad1: UITextField!
     @IBOutlet weak var densidad2: UITextField!
+    @IBOutlet weak var lbDensidadLiquido: UILabel!
     
     @IBOutlet weak var objeto1: UIImageView!
     @IBOutlet weak var objeto2: UIImageView!
@@ -34,6 +35,9 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var vaso: UIImageView!
     @IBOutlet weak var vasoDown: UIImageView!
     @IBOutlet weak var opacidadVista: UIView!
+    
+    @IBOutlet weak var btReinicia: UIButton!
+    
     
     var bgColor: UIColor!
     
@@ -78,8 +82,9 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
         self.objeto2.frame.origin.y = self.vaso.frame.origin.y //- (self.objeto2.frame.height / 2)
         
         self.objeto2.frame.origin.x = self.opacidadVista.frame.origin.x * 1.75
-       
-        //let calculo = self.opacidadVista.frame.width
+        densidadLiquido = 1000
+        lbDensidadLiquido.text = String(describing: (densidadLiquido!/1000)) + " g/cm3"
+
         
         view.backgroundColor = bgColor
         
@@ -129,6 +134,18 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
     }
     */
 
+    @IBAction func reiniciaExperimenta(_ sender: UIButton) {
+        btReinicia.isHidden = true
+        btReinicia.isEnabled = false
+        
+        self.objeto1.frame.origin.y = self.vaso.frame.origin.y
+        gramos1.text = "0"
+        volumen1.text = "0"
+        densidad1.text = "0"
+        
+    }
+    
+    
     
     //Función que calcula la densidad
     @IBAction func calculaDensidad() {
@@ -138,6 +155,8 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
         
         //Objeto 1
         if ( gramos1.text != "0" && volumen1.text != "0" && gramos1.text != "" && volumen1.text != ""){
+            btReinicia.isEnabled = true
+            btReinicia.isHidden = false
             let peso = Double(gramos1.text!)
             let volumen = Double(volumen1.text!)
             
@@ -236,7 +255,7 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         densidadLiquido = Double(densidadesLiquidos[row])
-        
+        lbDensidadLiquido.text = String(describing: (densidadLiquido!/1000)) + " g/cm3"
         //Agua
         if(row == 0){
             

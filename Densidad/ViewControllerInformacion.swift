@@ -15,7 +15,7 @@ class ViewControllerInformacion: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = bgColor
-        preferredContentSize = CGSize(width: 414, height: 700)
+        self.navigationItem.title = "Créditos"
         
         
     }
