@@ -75,7 +75,7 @@ class ViewControllerExperimenta: UIViewController, UIPickerViewDelegate, UIPicke
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.objeto1.frame.origin.y = self.vaso.frame.origin.y
+        self.objeto1.frame.origin.y = self.vistaOpacidad.frame.origin.y
         self.objeto1.center.x = self.view.center.x
         
         

@@ -21,11 +21,20 @@ class ViewControllerResultados: UIViewController, UITableViewDelegate , UITableV
     var calif = 100
     var califPorRespuesta = 0
     var tema = ""
+    var respuestasCorrectas = [String]()
+    var respuestasCorrectas2 = [String]()
+    var preguntas = [String]()
     
     var bgColor: UIColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for i in respuestasCorrectas{
+            //print(i)
+            if ( i != " "){
+                respuestasCorrectas2.append(i)
+            }
+        }
         
         view.backgroundColor = bgColor
         
@@ -53,6 +62,7 @@ class ViewControllerResultados: UIViewController, UITableViewDelegate , UITableV
         
         obtenerResultados()
 
+        calculaCalif()
         
         // Do any additional setup after loading the view.
     }
@@ -69,24 +79,20 @@ class ViewControllerResultados: UIViewController, UITableViewDelegate , UITableV
         //let arrBien = arrPreguntas[indexPath.row + 1]
         //let respBien = arrBien[1] as String
         
-        let aux = arrPreguntas[index + 1] as! [String]
+        let aux = preguntas[indexPath.row]
         
-        cell.textLabel?.text = aux[0]
+        cell.textLabel?.text = aux
         
         cell.detailTextLabel?.text = respUsua
         
-        let auxRespCorrecta = aux[1]
-        let auxRespUsuario = respuestas2[index]
-        index = index + 1
+        let auxRespCorrecta = respuestasCorrectas2[indexPath.row]
+        let auxRespUsuario = respuestas2[indexPath.row]
         
-        //print("arrpreguntas " + auxRespCorrecta)
-        //print("resp " + auxRespUsuario)
         
         if( auxRespUsuario == auxRespCorrecta ){
             cell.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         }
         else{
-            calif -= califPorRespuesta
             cell.backgroundColor = UIColor.red.withAlphaComponent(0.5)
         }
         
@@ -113,7 +119,7 @@ class ViewControllerResultados: UIViewController, UITableViewDelegate , UITableV
             return empTmp
         }
         catch{
-            print("nada perro")
+            //print("nada perro")
             return nil
         }
     }
@@ -135,7 +141,7 @@ class ViewControllerResultados: UIViewController, UITableViewDelegate , UITableV
     }
     
     func cambiaResultado(){
-        print(tema)
+        //print(tema)
         var boolNuevoTema = true
         for i in resultados{
             if(i.tema == tema){
@@ -153,6 +159,13 @@ class ViewControllerResultados: UIViewController, UITableViewDelegate , UITableV
             print(i.result)
             print("------")
         }*/
+    }
+    func calculaCalif(){
+        for i in 0...4{
+            if (respuestas2[i] != respuestasCorrectas2[i]){
+                calif -= califPorRespuesta
+            }
+        }
     }
     
 }

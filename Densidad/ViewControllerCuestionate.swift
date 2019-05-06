@@ -24,6 +24,8 @@ class ViewControllerCuestionate: UIViewController {
     var contador : Int = 1
     var respuestaRandom = ["","","",""]
     var arr = [Int]()
+    var respuestasCorrectas = [String](repeating: " ", count: 20)
+    var arrPregunta = [String]()
     
     var bgColor: UIColor!
     
@@ -48,6 +50,9 @@ class ViewControllerCuestionate: UIViewController {
         pregunta = arrPreguntas[contador] as! [String]
         
         if (ordenRespuestas[contador][0] == 0) {
+            arrPregunta.append(pregunta[0])
+            respuestasCorrectas.append(pregunta[1])
+            //print(pregunta[1])
             var ran1: Int = 0
             var ran2: Int = 0
             var ran3: Int = 0
@@ -110,9 +115,10 @@ class ViewControllerCuestionate: UIViewController {
         if(contador == arrPreguntas.count - 1){
             respuesta[contador] = pregunta[arr[1]]
             Terminar.isHidden = false
+            self.performSegue(withIdentifier: "respuestas", sender: self)
         }else{
             respuesta[contador] = pregunta[arr[1]]
-            contador = contador+1
+            contador = contador + 1
             cargaPregunta()
         }
     }
@@ -121,6 +127,7 @@ class ViewControllerCuestionate: UIViewController {
         if(contador == arrPreguntas.count - 1){
             respuesta[contador] = pregunta[arr[2]]
             Terminar.isHidden = false
+            self.performSegue(withIdentifier: "respuestas", sender: self)
         }else{
             respuesta[contador] = pregunta[arr[2]]
             contador = contador+1
@@ -132,6 +139,7 @@ class ViewControllerCuestionate: UIViewController {
         if(contador == arrPreguntas.count - 1){
             respuesta[contador] = pregunta[arr[3]]
             Terminar.isHidden = false
+            self.performSegue(withIdentifier: "respuestas", sender: self)
         }else{
             respuesta[contador] = pregunta[arr[3]]
             contador = contador+1
@@ -143,6 +151,7 @@ class ViewControllerCuestionate: UIViewController {
         if(contador == arrPreguntas.count - 1){
             respuesta[contador] = pregunta[arr[4]]
             Terminar.isHidden = false
+            self.performSegue(withIdentifier: "respuestas", sender: self)
         }else{
             respuesta[contador] = pregunta[arr[4]]
             contador = contador+1
@@ -158,7 +167,8 @@ class ViewControllerCuestionate: UIViewController {
         
         vista.bgColor = self.bgColor
 
-        
+        vista.preguntas = arrPregunta
+        vista.respuestasCorrectas = respuestasCorrectas
         vista.arrPreguntas = (arrPreguntas as! NSMutableArray)
         vista.respuestas = respuesta
         
